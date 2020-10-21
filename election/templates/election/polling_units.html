@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Polling unit results
+{% endblock title %} 
+
+{% block content %}
+<h1 class="text-center">Results By Polling Units</h1>
+<div class="card">
+  <form action="." method="get">
+    {% for field in pu_form %}
+    <div class="form-group text-right">
+      <span>Filter by Polling Unit ID:</span>
+        {{ field }}
+        <span><button class="btn btn-primary btn-sm" type="submit">GO</button></span>
+      </div>
+    {% endfor %}
+  </form>
+    
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Polling Unit Unique Id</th>
+        <th scope="col">Political Party</th>
+        <th scope="col">Score</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in pu_results %}
+        
+      <tr>
+        <th scope="row">{{ result.polling_unit_uniqueid }}</th>
+        <td>{{ result.party_abbreviation }}</td>
+        <td>{{ result.party_score }}</td>
+        <td>{{ result.date_entered }}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

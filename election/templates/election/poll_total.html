@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Polling Station Total
+{% endblock title %}
+
+{% block content %}
+
+<div class="card">
+    <form action="." method="get">
+        <div class="form-group">
+
+            {{ lga_form }}
+        </div>
+        <button type="submit" class="btn btn-primary">Go</button>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th scope="col">Political Party</th>
+          <th scope="col">Total Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for party, total in total_results.items %}
+
+        <tr>
+
+          <td>{{ party }}</td>
+          <td>{{ total.total }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

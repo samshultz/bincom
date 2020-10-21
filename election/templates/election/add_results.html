@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add polls Result
+{% endblock title %}
+
+{% block content %}
+    <form method="post" action="">
+        {{ polling_unit_form.as_p }}
+        {{ agent_form.as_p }}
+        {{ party_form.as_p }}
+        <input type="Submit" class="btn btn-primary" value="Submit">
+    </form>
+{% endblock content %}
